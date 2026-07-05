@@ -1,122 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open URL Video in xPola Player</title>
-    <meta name="description" content="Experience seamless video playback with Xpola Player. Our page allows you to effortlessly play video URLs, offering high-quality streaming with minimal buffering. Perfect for viewers seeking an optimized watching experience. Click to enjoy your favorite videos now.">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
-    <meta property="og:image" content=""/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختبار الأدب</title>
 
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #000;
-            background-image: url('https://via.placeholder.com/1920x1080.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f4c45;
+}
 
-        .play-button {
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #000;
-            border: none;
-            padding: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+}
 
-        .play-button:hover {
-            background-color: rgba(255, 0, 0, 0.8);
-            color: #fff;
-            transform: scale(1.1);
-        }
+.header {
+    background: #1f6f63;
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+}
 
-        .message-box {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: none;
-            z-index: 1000;
-        }
+.header span {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 14px;
+}
 
-        .message-box p {
-            margin: 10px 0;
-        }
+.notice {
+    background: #f3e5ab;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
 
-        .download-button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+.card {
+    background: #eee;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    line-height: 1.8;
+}
 
-        .download-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+.question {
+    margin-bottom: 15px;
+}
 
-    <script>
-        // رابط intent للقناة (يجب أن يتم تحديثه بناءً على القناة الحالية)
-        let intentUrl = 'intent://XPOLA808SxoyeGRkYGMqPz95fmR5d2JxfD18eWZ1PnV0d3V+dWhkc3R+Pn51ZD9DRFM/Q0RTPnljfXw/fXF+eXZ1Y2Q+fWB0bH5xfXUt2KPZmtih2ZHYoTAhbHRifT15fnZ/LXN8dXFie3VpbCQndiBxciUodiVxKCFzIiByJXImKXRzJCkkc3J1ISAiKiF1ICchKXRxJiUjcyJyJCYlInYgciBydigkdCkmcyckMjwaMDAwMDJ4ZGRgYyo/P3l+ZHl3YnF8PXx5ZnU+dXR3dX51aGRzdH4+fnVkP1FUQ0AhP1FUQ0AhPnljfXw/fXF+eXZ1Y2Q+fWB0bH5xfXUt2KPZmtih2ZHYoTAibHRifT15fnZ/LXN8dXFie3VpbHVyJXEjcSQodiN1ISkhcSAgdSNxcyF1InQkJyBzJCkhKiJzKHInISkoJSYjJSIndSUiJHQmJiYiKHMgKSJ1diF2MhpN#Intent;scheme=xmtv;package=com.xpola.player;end';
+.q-number {
+    color: red;
+    font-weight: bold;
+}
 
-        function openVideo() {
-            // فحص وجود مشغل xPola
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = intentUrl;
+@media (max-width: 600px) {
+    .container {
+        padding: 5px;
+    }
 
-            iframe.onload = () => {
-                // إذا تم تحميل iframe، يعني أن المشغل غير موجود
-                document.getElementById('message-box').style.display = 'block';
-            };
+    .header {
+        font-size: 16px;
+    }
 
-            iframe.onerror = () => {
-                // إذا حدث خطأ في تحميل الرابط، سيتم فتح الفيديو مباشرة
-                location.href = intentUrl;
-            };
+    .card {
+        font-size: 14px;
+    }
+}
+</style>
 
-            document.body.appendChild(iframe);
-        }
-    </script>
 </head>
 <body>
-    <!-- زر تشغيل -->
-    <button class="play-button" onclick="openVideo()">
-        <svg fill="#000000" height="80px" width="80px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60" xml:space="preserve">
-            <g>
-                <path d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path>
-                <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path>
-            </g>
-        </svg>
-    </button>
 
-    <!-- رسالة للمستخدم -->
-    <div id="message-box" class="message-box">
-        <p>يرجى تثبيت مشغل xPola Player لتشغيل القناة.</p>
-        <a class="download-button" href="https://play.google.com/store/apps/details?id=com.xpola.player" target="_blank">تحميل المشغل</a>
+<div class="container">
+
+    <div class="header">
+        <span>السادس الاعدادي</span>
+        اختبار الأدب
     </div>
+
+    <div class="notice">
+        ملاحظة: الإجابة عن أربعة أسئلة
+    </div>
+
+    <div class="card">
+
+        <div class="question">
+            <span class="q-number">س1/</span>
+            <p>أ- ما حال الأدب في العصر الحديث؟</p>
+            <p>ب- ما الحركات القديمة والجديدة التي ظهرت في الشعر العربي؟ وما الحركة المتوقعة التي ظهرت؟</p>
+        </div>
+
+        <div class="question">
+            <span class="q-number">س2/</span>
+            <p>أ- ما الذي ساعد في ظهور جيل الإحياء؟</p>
+            <p>ب- كيف تطورت أشكال القصيدة وفنونها في العصر الحديث؟</p>
+        </div>
+
+        <div class="question">
+            <span class="q-number">س3/</span>
+            <p>أ- المقصود ب جيال الاحياء ؟</p>
+            <p>ب-هل تفاعل العرب مع المعطيات الحضارية الجديدة  ؟</p>
+        </div>
+
+        <div class="question">
+            <span class="q-number">س4/</span>
+            <p>أ- كيف دخلت الاجناس والانواع الادبية الوافدة على الادب العربي ؟</p>
+            
+        </div>
+
+        <div class="question">
+            <span class="q-number">س5/</span>
+            <p>أ- ماذا توحي المعلقات؟</p>
+            <p>ب- ماذا تعرف عن عام 1798م؟</p>
+        </div>
+
+    </div>
+
+</div>
+
 </body>
 </html>
